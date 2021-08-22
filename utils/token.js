@@ -1,25 +1,20 @@
 import jwt from 'jsonwebtoken';
 import Cookies from 'js-cookie';
 
+const TOKEN_KEY = 'PT';
+
 const Token = {
-    getToken() {
-        return Cookies.get('jwt_hp') + '.' + Cookies.get('jwt_s');
+    set(token){
+        Cookies.set(TOKEN_KEY, token);
     },
 
-    getCredentials() {
-        return jwt.decode(this.getToken());
+    get() {
+        return Cookies.get(TOKEN_KEY)
     },
 
-    removeToken(){
-        Cookies.remove('jwt_hp');
-        Cookies.remove('jwt_s');
+    remove(){
+        Cookies.remove(TOKEN_KEY);
     },
-
-    hasExpired(){
-        const token = this.getCredentials();
-        const unixTime = Date.now()/1000|0;
-        return unixTime > token.exp;
-    }
 }
 
 export default Token;

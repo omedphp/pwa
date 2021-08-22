@@ -7,6 +7,9 @@ export default {
     [types.AUTH_LOGIN_END](state){
         Object.assign(state, {loggingIn: false});
     },
+    [types.AUTH_LOGIN_SET_TOKEN](state, token){
+        Object.assign(state, {token});
+    },
     [types.AUTH_LOGIN_ERROR](state, loginError){
         Object.assign(state, {loginError});
     },

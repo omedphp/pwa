@@ -26,6 +26,7 @@ export default {
       '@nuxt/http',
       '@nuxtjs/axios'
   ],
+  /*
   axios: {
     proxy: true
   },
@@ -41,4 +42,5 @@ export default {
       changeOrigin: true
     }
   }
+   */
 };
