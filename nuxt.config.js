@@ -1,32 +1,44 @@
 export default {
-  // Target: https://go.nuxtjs.dev/config-target
+  env: {
+    passport_url: process.env.PASSPORT_API_URL || 'http://localhost/api/passport'
+  },
   target: 'static',
-
-  // Global App headers: https://go.nuxtjs.dev/config-head
+  ssr: false,
   head: {
-    title: 'My Nuxt Application',
+    title: 'Omed',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: 'This is an awesome description of my Nuxt app',
+        content: 'Omed is a demo application',
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
-
-  // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
-
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
       '@nuxtjs/tailwindcss'
   ],
-
-  // Modules: https://go.nuxtjs.dev/config-modules
-  modules: []
+  modules: [
+      '@nuxt/http',
+      '@nuxtjs/axios'
+  ],
+  axios: {
+    proxy: true
+  },
+  http: {
+    proxy: true
+  },
+  proxy: {
+    '/passport': {
+      target: process.env.PASSPORT_API_URL || 'http://localhost/api/passport',
+      pathRewrite: {
+        '^/passport/': ''
+      },
+      changeOrigin: true
+    }
+  }
 };

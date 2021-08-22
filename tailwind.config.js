@@ -1,5 +1,4 @@
 module.exports = {
-  mode: 'jit',
   purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -8,5 +7,7 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+      require('@tailwindcss/ui')
+  ],
 }

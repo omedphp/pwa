@@ -10,10 +10,18 @@
     "start": "nuxt start"
   },
   "dependencies": {
+    "@nuxt/http": "^0.6.4",
+    "@nuxtjs/axios": "^5.13.6",
+    "@tailwindcss/ui": "^0.7.2",
     "core-js": "^3.15.0",
-    "nuxt": "^2.15.7"
+    "js-cookie": "^3.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "nuxt": "^2.15.7",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^4.2.1"
+    "@nuxt/test-utils": "^0.2.2",
+    "@nuxtjs/tailwindcss": "^4.2.1",
+    "jest": "^27.0.6"
   }
 }
